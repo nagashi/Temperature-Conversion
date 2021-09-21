@@ -1,7 +1,7 @@
 # README
 
 Temperature Conversion Application
-When ran, you're asked to enter a c for conversion from Celsius to Fahrenheit or f to convert from Fahrenheit to Celsius. You'll then be asked to enter an integer as the temperature you wish to convert. Additionally, the convert_temperature file in the release folder can also be ran.
+When ran, you're asked to enter a c for conversion from Celsius to Fahrenheit or f to convert from Fahrenheit to Celsius. You'll then be asked to enter an integer as the temperature you wish to convert.
 
 This README would normally document whatever steps are necessary to get the
 application up and running.
