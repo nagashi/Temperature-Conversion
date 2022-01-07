@@ -10,7 +10,7 @@ Things you may want to cover:
 
 * Language: Rust 🦀 v1.54.0
 
-* System dependencies
+* System dependencies: None
 
 * Configuration
 

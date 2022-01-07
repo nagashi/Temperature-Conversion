@@ -1,5 +1,31 @@
 use std::{fmt, io, str::FromStr};
 
+enum TemperatureUnit {
+    Fahrenheit,
+    Celcius,
+}
+
+impl FromStr for TemperatureUnit {
+    type Err = ();
+
+    fn from_str(s: &str) -> Result<Self, Self::Err> {
+        match s {
+            "c" | "C" => Ok(TemperatureUnit::Celcius),
+            "f" | "F" => Ok(TemperatureUnit::Fahrenheit),
+            _ => Err(()),
+        }
+    }
+}
+
+impl fmt::Display for TemperatureUnit {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+        match self {
+            TemperatureUnit::Fahrenheit => write!(f, "F"),
+            TemperatureUnit::Celcius => write!(f, "C"),
+        }
+    }
+}
+
 fn temperature_conversion(temp_type: TemperatureUnit, num: i32) {
     match temp_type {
         TemperatureUnit::Fahrenheit => {
@@ -16,10 +42,11 @@ fn temperature_conversion(temp_type: TemperatureUnit, num: i32) {
                 }
                 _ => {
                     println!(
-                        "\n({:?}°{} - 32) * (5/9) = {:?}°",
+                        "\n({:?}°{} - 32) * (5/9) = {:?}°{}",
                         num,
                         TemperatureUnit::Fahrenheit,
-                        i as i32
+                        i as i32,
+                        TemperatureUnit::Celcius
                     );
                 }
             }
@@ -48,32 +75,6 @@ fn temperature_conversion(temp_type: TemperatureUnit, num: i32) {
                     );
                 }
             }
-        }
-    }
-}
-
-enum TemperatureUnit {
-    Fahrenheit,
-    Celcius,
-}
-
-impl FromStr for TemperatureUnit {
-    type Err = ();
-
-    fn from_str(s: &str) -> Result<Self, Self::Err> {
-        match s {
-            "c" | "C" | "celcius" | "Celcius" => Ok(TemperatureUnit::Celcius),
-            "f" | "F" | "fahrenheit" | "Fahrenheit" => Ok(TemperatureUnit::Fahrenheit),
-            _ => Err(()),
-        }
-    }
-}
-
-impl fmt::Display for TemperatureUnit {
-    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
-        match self {
-            TemperatureUnit::Fahrenheit => write!(f, "F"),
-            TemperatureUnit::Celcius => write!(f, "C"),
         }
     }
 }
