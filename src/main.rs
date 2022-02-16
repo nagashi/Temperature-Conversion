@@ -99,7 +99,7 @@ fn main() {
 
         let temp_scale = match temp_scale.trim().parse::<TemperatureUnit>() {
             Ok(c_f) => c_f,
-            Err(_) => continue,
+            Err(_) => continue 'outer,
         };
 
         'inner: loop {
