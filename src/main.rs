@@ -26,15 +26,14 @@ impl fmt::Display for TemperatureUnit {
     }
 }
 
-fn temperature_conversion(temp_type: TemperatureUnit, num: i32) {
+fn temperature_conversion(temp_type: TemperatureUnit, num: f32) {
     match temp_type {
         TemperatureUnit::Fahrenheit => {
             let i = (num as f32 - 32_f32) * (5_f32 / 9_f32);
             match i.fract() {
                 x if x != 0.0 => {
                     println!(
-                        "\n({:?}°{} - 32) * (5/9) = {:.2}°{}",
-                        num,
+                        "\n({num}°{} - 32) * (5/9) = {:.1}°{}",
                         TemperatureUnit::Fahrenheit,
                         i,
                         TemperatureUnit::Celcius
@@ -42,8 +41,7 @@ fn temperature_conversion(temp_type: TemperatureUnit, num: i32) {
                 }
                 _ => {
                     println!(
-                        "\n({:?}°{} - 32) * (5/9) = {:?}°{}",
-                        num,
+                        "\n({num}°{} - 32) * (5/9) = {:?}°{}",
                         TemperatureUnit::Fahrenheit,
                         i as i32,
                         TemperatureUnit::Celcius
@@ -57,8 +55,7 @@ fn temperature_conversion(temp_type: TemperatureUnit, num: i32) {
             match i.fract() {
                 x if x != 0.0 => {
                     println!(
-                        "\n({:?}°{} * 9/5) + 32 = {:.2}°{}",
-                        num,
+                        "\n({num}°{} * 9/5) + 32 = {:.1}°{}",
                         TemperatureUnit::Celcius,
                         i,
                         TemperatureUnit::Fahrenheit
@@ -67,8 +64,7 @@ fn temperature_conversion(temp_type: TemperatureUnit, num: i32) {
 
                 _ => {
                     println!(
-                        "\n({:?}°{} - 32) * (5/9) = {:?}°{}",
-                        num,
+                        "\n({num}°{} - 32) * (5/9) = {:?}°{}",
                         TemperatureUnit::Celcius,
                         i as i32,
                         TemperatureUnit::Fahrenheit
@@ -82,14 +78,24 @@ fn temperature_conversion(temp_type: TemperatureUnit, num: i32) {
 fn main() {
     use TemperatureUnit::*;
 
-    'outer: loop {
-        println!("\nEnter c to convert to Fahrenheit or f to convert to Celsius");
+    let quit = |param| println!("\nType \"quit\" to end the program or\n{}", param);
+    let mut vec = Vec::new();
+    vec.push("Enter c to convert to Fahrenheit or f to convert to Celsius");
+    vec.push("Enter a number to convert Celsius to Fahrenheit.");
+    vec.push("Enter a number to convert Fahrenheit to Celsius.");
 
-        let mut temp_scale = String::new(); // new() is an associated function of String type.
+    'outer: loop {
+        let mut temp_scale = String::new();
+
+        quit(vec[0]);
 
         io::stdin()
             .read_line(&mut temp_scale)
-            .expect("Failed to read temperature type");
+            .expect("Failed to reade line");
+
+        if temp_scale.trim().to_string().to_lowercase() == "quit" {
+            break 'outer;
+        }
 
         let temp_scale = match temp_scale.trim().parse::<TemperatureUnit>() {
             Ok(c_f) => c_f,
@@ -98,8 +104,8 @@ fn main() {
 
         'inner: loop {
             match temp_scale {
-                Celcius => println!("\nEnter an integer to convert Celsius to Fahrenheit."),
-                Fahrenheit => println!("\nEnter an integer to convert Fahrenheit to Celsius."),
+                Celcius => quit(vec[1]),
+                Fahrenheit => quit(vec[2]),
             }
 
             let mut temperature = String::new();
@@ -108,13 +114,17 @@ fn main() {
                 .read_line(&mut temperature)
                 .expect("Failed to read amount of temperature");
 
-            let temperature: i32 = match temperature.trim().parse::<i32>() {
+            if temperature.trim().to_string().to_lowercase() == "quit" {
+                break 'outer;
+            }
+
+            let temperature: f32 = match temperature.trim().parse::<f32>() {
                 Ok(temp) => temp,
                 Err(_) => continue 'inner,
             };
 
             temperature_conversion(temp_scale, temperature);
-            break 'outer;
+            continue 'outer;
         }
     }
 }
