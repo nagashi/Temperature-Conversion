@@ -60,7 +60,6 @@ fn temperature_conversion(temp_type: TemperatureUnit, num: f32) {
                         TemperatureUnit::Fahrenheit
                     );
                 }
-
                 _ => {
                     println!(
                         "\n({num}°{} - 32) * (5/9) = {:?}°{}",
