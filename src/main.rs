@@ -41,14 +41,14 @@ fn temperature_conversion(temp_type: TemperatureUnit, num: f32) {
                 }
                 _ => {
                     println!(
-                        "\n({num}°{} - 32) * (5/9) = {:?}°",
+                        "\n({num}°{} - 32) * (5/9) = {:?}°{}",
                         TemperatureUnit::Fahrenheit,
-                        i as i32
+                        i as i32,
+                        TemperatureUnit::Celcius
                     );
                 }
             }
         }
-
         TemperatureUnit::Celcius => {
             let i = (num as f32 * (9_f32 / 5.0)) + 32_f32;
             match i.fract() {
