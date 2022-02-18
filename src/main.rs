@@ -33,8 +33,7 @@ fn temperature_conversion(temp_type: TemperatureUnit, num: f32) {
             match i.fract() {
                 x if x != 0.0 => {
                     println!(
-                        "\n({:?}°{} - 32) * (5/9) = {:.2}°{}",
-                        num,
+                        "\n({num}°{} - 32) * (5/9) = {:.1}°{}",
                         TemperatureUnit::Fahrenheit,
                         i,
                         TemperatureUnit::Celcius
@@ -42,8 +41,7 @@ fn temperature_conversion(temp_type: TemperatureUnit, num: f32) {
                 }
                 _ => {
                     println!(
-                        "\n({:?}°{} - 32) * (5/9) = {:?}°",
-                        num,
+                        "\n({num}°{} - 32) * (5/9) = {:?}°",
                         TemperatureUnit::Fahrenheit,
                         i as i32
                     );
@@ -56,8 +54,7 @@ fn temperature_conversion(temp_type: TemperatureUnit, num: f32) {
             match i.fract() {
                 x if x != 0.0 => {
                     println!(
-                        "\n({:?}°{} * 9/5) + 32 = {:.2}°{}",
-                        num,
+                        "\n({num}°{} * 9/5) + 32 = {:.1}°{}",
                         TemperatureUnit::Celcius,
                         i,
                         TemperatureUnit::Fahrenheit
@@ -66,8 +63,7 @@ fn temperature_conversion(temp_type: TemperatureUnit, num: f32) {
 
                 _ => {
                     println!(
-                        "\n({:?}°{} - 32) * (5/9) = {:?}°{}",
-                        num,
+                        "\n({num}°{} - 32) * (5/9) = {:?}°{}",
                         TemperatureUnit::Celcius,
                         i as i32,
                         TemperatureUnit::Fahrenheit
@@ -86,11 +82,11 @@ enum Message {
 }
 
 fn process(msg: Message) {
-    let quit = |msg| println!("\nType \"quit\" to end the program or\n{:?}", msg);
+    let quit = |msg| println!("\nType \"quit\" to end the program or\n{msg}");
 
     match msg {
         Message::CF => {
-            quit("Enter c to convert to Fahrenheit or f to convert to Celsius");
+            quit("Enter C to convert to Fahrenheit or F to convert to Celsius");
         }
         Message::C => {
             quit("Enter a number to convert Celsius to Fahrenheit.");
