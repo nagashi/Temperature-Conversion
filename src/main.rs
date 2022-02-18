@@ -9,9 +9,9 @@ impl FromStr for TemperatureUnit {
     type Err = ();
 
     fn from_str(s: &str) -> Result<Self, Self::Err> {
-        match s {
-            "c" | "C" => Ok(TemperatureUnit::Celcius),
-            "f" | "F" => Ok(TemperatureUnit::Fahrenheit),
+        match s.to_lowercase().as_ref() {
+            "c" | "celcius" => Ok(TemperatureUnit::Celcius),
+            "f" | "fahrenheit" => Ok(TemperatureUnit::Fahrenheit),
             _ => Err(()),
         }
     }
@@ -33,7 +33,8 @@ fn temperature_conversion(temp_type: TemperatureUnit, num: f32) {
             match i.fract() {
                 x if x != 0.0 => {
                     println!(
-                        "\n({num}°{} - 32) * (5/9) = {:.1}°{}",
+                        "\n({:?}°{} - 32) * (5/9) = {:.2}°{}",
+                        num,
                         TemperatureUnit::Fahrenheit,
                         i,
                         TemperatureUnit::Celcius
@@ -41,10 +42,10 @@ fn temperature_conversion(temp_type: TemperatureUnit, num: f32) {
                 }
                 _ => {
                     println!(
-                        "\n({num}°{} - 32) * (5/9) = {:?}°{}",
+                        "\n({:?}°{} - 32) * (5/9) = {:?}°",
+                        num,
                         TemperatureUnit::Fahrenheit,
-                        i as i32,
-                        TemperatureUnit::Celcius
+                        i as i32
                     );
                 }
             }
@@ -55,7 +56,8 @@ fn temperature_conversion(temp_type: TemperatureUnit, num: f32) {
             match i.fract() {
                 x if x != 0.0 => {
                     println!(
-                        "\n({num}°{} * 9/5) + 32 = {:.1}°{}",
+                        "\n({:?}°{} * 9/5) + 32 = {:.2}°{}",
+                        num,
                         TemperatureUnit::Celcius,
                         i,
                         TemperatureUnit::Fahrenheit
@@ -64,7 +66,8 @@ fn temperature_conversion(temp_type: TemperatureUnit, num: f32) {
 
                 _ => {
                     println!(
-                        "\n({num}°{} - 32) * (5/9) = {:?}°{}",
+                        "\n({:?}°{} - 32) * (5/9) = {:?}°{}",
+                        num,
                         TemperatureUnit::Celcius,
                         i as i32,
                         TemperatureUnit::Fahrenheit
@@ -75,19 +78,36 @@ fn temperature_conversion(temp_type: TemperatureUnit, num: f32) {
     }
 }
 
+#[derive(Debug)]
+enum Message {
+    CF,
+    C,
+    F,
+}
+
+fn process(msg: Message) {
+    let quit = |msg| println!("\nType \"quit\" to end the program or\n{:?}", msg);
+
+    match msg {
+        Message::CF => {
+            quit("Enter c to convert to Fahrenheit or f to convert to Celsius");
+        }
+        Message::C => {
+            quit("Enter a number to convert Celsius to Fahrenheit.");
+        }
+        Message::F => {
+            quit("Enter a number to convert Fahrenheit to Celsius.");
+        }
+    }
+}
+
 fn main() {
     use TemperatureUnit::*;
-
-    let quit = |param| println!("\nType \"quit\" to end the program or\n{}", param);
-    let mut vec = Vec::new();
-    vec.push("Enter c to convert to Fahrenheit or f to convert to Celsius");
-    vec.push("Enter a number to convert Celsius to Fahrenheit.");
-    vec.push("Enter a number to convert Fahrenheit to Celsius.");
 
     'outer: loop {
         let mut temp_scale = String::new();
 
-        quit(vec[0]);
+        process(Message::CF);
 
         io::stdin()
             .read_line(&mut temp_scale)
@@ -104,8 +124,8 @@ fn main() {
 
         'inner: loop {
             match temp_scale {
-                Celcius => quit(vec[1]),
-                Fahrenheit => quit(vec[2]),
+                Celcius => process(Message::C),
+                Fahrenheit => process(Message::F),
             }
 
             let mut temperature = String::new();
