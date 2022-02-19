@@ -13,7 +13,7 @@ Thanks for reading and do reach out and let me know if you have any questions or
           width="30"
           height="20"
           border="0"
-        />&nbsp;&nbsp;The source code can be viewed in the&nbsp; [src/main](https://github.com/nagashi/Temperature-Conversion/blob/main/src/main.rs)&nbsp;folder for those unfamiliar with the Rust language.        
+        />&nbsp;The source code can be viewed in the&nbsp; [src/main](https://github.com/nagashi/Temperature-Conversion/blob/main/src/main.rs)&nbsp;folder for those unfamiliar with the Rust language.        
         <br>
 <div align="center"> 
 
