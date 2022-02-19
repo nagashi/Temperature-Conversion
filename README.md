@@ -36,3 +36,11 @@ Unless you explicitly state otherwise,&nbsp;any contribution intentionally submi
 for inclusion in&nbsp; 'Temperature_Conversion'&nbsp;by you,&nbsp;shall be licensed as MIT,&nbsp;without any additional terms or conditions.
 
 </p>
+
+```mermaid
+  graph TD;
+      A-->B;
+      A-->C;
+      B-->D;
+      C-->D;
+```
