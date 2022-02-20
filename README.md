@@ -7,7 +7,16 @@
 </div>
 <br><br>
 
-The Temperature Conversion Application is a simple application comprised of loop labels,&nbsp;enums,&nbsp;functions,&nbsp;a closure,&nbsp;and implementations of traits.&nbsp;&nbsp;Once the program is started,&nbsp;the user is asked to enter a 'C' for conversion from Celsius to Fahrenheit or 'F' to convert from Fahrenheit to Celsius,&nbsp;even though,&nbsp;the program is additionally designed to allow a user to input 'Celsius' or 'Fahrenheit'.&nbsp;&nbsp;The program then asks that a number be entered for the temperature to be converted.&nbsp;&nbsp;The number can either be of type integer or float.&nbsp;&nbsp;At each stage of the previous steps, the user is given the option to exit the program by typing 'quit'.
+The Temperature Conversion Application is a simple application comprised of loop labels,&nbsp;enums,&nbsp;functions,&nbsp;a closure,&nbsp;and implementations of traits.&nbsp;&nbsp;Once the program is started,&nbsp;the user is asked to enter a 'C' for conversion from Celsius to Fahrenheit or 'F' to convert from Fahrenheit to Celsius,&nbsp;even though,&nbsp;the program is additionally designed to allow a user to input 'Celsius' or 'Fahrenheit'.&nbsp;&nbsp;The program then asks that a number be entered for the temperature to be converted.&nbsp;&nbsp;The number can either be of type integer or float.&nbsp;&nbsp;At each stage of the previous steps, the user is given the option to exit the program by typing 'quit'.&nbsp;&nbsp;The application flowchart can be viewed below.
+```mermaid
+flowchart LR
+A[Start Program] -->B{Quit or  enter<br>temperature scale}
+B -- Temperature Scale --> C{Quit or enter<br>temperature number} 
+C -- Temperature Number --> D[Temperature successfully<br>converted!] 
+D -- Start Again -->B
+B -- Quit --> E[Stop Program]
+C -- Quit --> E
+```
 <br><br>
 Thank you for reading about this application.&nbsp;&nbsp;Click 'Star' if you like the program and do reach out and let me know if you have any questions or concerns.&nbsp;&nbsp;All suggestions, constructive,&nbsp;even non-constructive,&nbsp;will be welcomed.<img src = "images/ok.png" alt="Image denoting Ok"
           width="30"
@@ -36,11 +45,3 @@ Unless you explicitly state otherwise,&nbsp;any contribution intentionally submi
 for inclusion in&nbsp; 'Temperature_Conversion'&nbsp;by you,&nbsp;shall be licensed as MIT,&nbsp;without any additional terms or conditions.
 
 </p>
-
-```mermaid
-  graph TD;
-      A-->B;
-      A-->C;
-      B-->D;
-      C-->D;
-```
