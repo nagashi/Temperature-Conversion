@@ -7,12 +7,12 @@
 </div>
 <br><br>
 
-The Temperature Conversion Application is a simple application comprised of loop labels,&nbsp;enums,&nbsp;functions,&nbsp;a closure,&nbsp;and implementations of traits.&nbsp;&nbsp;Once the program is started,&nbsp;the user is asked to enter a 'C' for conversion from Celsius to Fahrenheit or 'F' to convert from Fahrenheit to Celsius,&nbsp;even though,&nbsp;the program is additionally designed to allow a user to input 'Celsius' or 'Fahrenheit'.&nbsp;&nbsp;The program then asks that a number be entered for the temperature to be converted.&nbsp;&nbsp;The number can either be of type integer or float.&nbsp;&nbsp;At each stage of the previous steps, the user is given the option to exit the program by typing 'quit'.&nbsp;&nbsp;The flowchart for the program can be viewed below.
+The Temperature Conversion Application is a simple application comprised of loop labels,&nbsp;enums,&nbsp;functions,&nbsp;a closure,&nbsp;and implementations of traits.&nbsp;&nbsp;Once the program is started,&nbsp;the user is asked to enter a 'C' for conversion from Celsius to Fahrenheit or 'F' to convert from Fahrenheit to Celsius,&nbsp;even though,&nbsp;the program is additionally designed to allow a user to input 'Celsius' or 'Fahrenheit'.&nbsp;&nbsp;The program then asks that a number be entered for the temperature to be converted.&nbsp;&nbsp;The number can either be of type integer or float.&nbsp;&nbsp;At each stage of the previous steps, the user is given the option to exit the program by typing 'quit'.&nbsp;&nbsp;Any error in entering the requested type for either step will simply rerun that particular step.&nbsp;&nbsp;The flowchart for the program can be viewed below.
 ```mermaid
 flowchart LR
-A[Start Program] -->B{Quit or  enter<br>temperature scale}
-B -- Temperature Scale --> C{Quit or enter<br>temperature number} 
-C -- Temperature Number --> D[Temperature successfully<br>converted!] 
+A[Start Program] -->B{Quit or  enter<br>temperature type<br>C or F<br> for conversion}
+B -- C or F --> C{Quit or enter<br>temperature number<br>integer or float} 
+C -- Integer or Float --> D[Temperature successfully<br>converted!] 
 D -- Start Again -->B
 B -- Quit --> E[Stop Program]
 C -- Quit --> E
