@@ -11,7 +11,7 @@ The Temperature Conversion Application is a simple application comprised of loop
 
 ```mermaid
 %% Left to Right & assign values
-flowchart LR
+flowchart TB
 A[Start Program]
 B{Quit or enter<br>temperature type<br>C or F<br>for conversion}
 C{Quit or enter<br>temperature number<br>integer or float}
@@ -25,8 +25,8 @@ B == Error on Entry ==> B;
 C -- Integer or Float --> D;
 C == Error on Entry ==> C; %% Bold edge
 D -- Start Again -->B;
-B --> |Quit| E;
-C --> |Quit| E;
+B -. Quit .-> E;
+C -. Quit .-> E;
 
 %% Assign Style
 style A stroke:green, stroke-width:5px;
