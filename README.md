@@ -16,8 +16,8 @@ C -- Integer or Float --> D[Temperature successfully<br>converted!]
 D -- Start Again -->B
 B -- Quit --> E[Stop Program]
 C -- Quit --> E
-B -- Error on Entry --> B
-C -- Error on Entry --> C
+B == Error on Entry ==> B
+C == Error on Entry ==> C
 ```
 Thank you for reading about this application.&nbsp;&nbsp;Click 'Star' if you like the program and do reach out and let me know if you have any questions or concerns.&nbsp;&nbsp;All suggestions, constructive,&nbsp;even non-constructive,&nbsp;will be welcomed.<img src = "images/ok.png" alt="Image denoting Ok"
           width="30"
