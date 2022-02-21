@@ -20,11 +20,11 @@ B == Error on Entry ==> B
 C -- Integer or Float --> D
 C == Error on Entry ==> C
 D -- Start Again -->B
-B --> |Quit| E[Stop Program]
-C --> |Quit| E[Stop Program]
-    id1(Start)-->id2(Stop)
-    style id1 fill:#f9f,stroke:#333,stroke-width:4px;
-    style id2 fill:#ccf,stroke:#f66,stroke-width:2px,stroke-dasharray: 5, 5;
+B --> |Quit| E[Stop<br>Program]
+C --> |Quit| E[Stop<br>Program]
+style A stroke:green, stroke-width:5px;
+style D stroke:yellow,stroke-width:5; 
+style E stroke:red, stroke-width:5px;
 ```
 Thank you for reading about this application.&nbsp;&nbsp;Click 'Star' if you like the program and do reach out and let me know if you have any questions or concerns.&nbsp;&nbsp;All suggestions, constructive,&nbsp;even non-constructive,&nbsp;will be welcomed.<img src = "images/ok.png" alt="Image denoting Ok"
           width="30"
