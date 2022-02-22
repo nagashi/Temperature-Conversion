@@ -12,20 +12,20 @@ The Temperature Conversion Application is a simple application comprised of loop
 ```mermaid
 %% Top to Bottom & assign values
 flowchart TB
-A[Start Program]
-B{Quit or enter<br>temperature type<br>C or F<br>for conversion}
-C{Quit or enter<br>temperature number<br>integer or float}
-D[Temperature successfully<br>converted!];
-E[Stop<br>Program];
+A(Start<br>Program);  %% round edges
+B{Quit or enter<br>temperature type<br>C or F<br>for conversion};
+C{Quit or enter<br>temperature number<br>integer or float};
+D(Temperature<br>successfully converted!);  %% round edges
+E(Stop<br>Program); %% round edges
 
 %% Assign links
-A --> B
-B -- C or F --> C
+A --> B;
+B -- C or F --> C;
 B == Error on Entry ==> B;
 C -- Integer or Float --> D;
 C == Error on Entry ==> C; %% Bold edge
 D -- Start Again -->B;
-B -. Quit .-> E;
+B -. Quit .-> E; %% dashes
 C -. Quit .-> E;
 
 %% Assign Style
