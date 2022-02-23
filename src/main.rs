@@ -26,10 +26,10 @@ impl fmt::Display for TemperatureUnit {
     }
 }
 
-fn temperature_conversion(temp_type: TemperatureUnit, num: f32) {
+fn temperature_conversion(temp_type: TemperatureUnit, num: f64) {
     match temp_type {
         TemperatureUnit::Fahrenheit => {
-            let i = (num as f32 - 32_f32) * (5_f32 / 9_f32);
+            let i = (num as f64 - 32_f64) * (5_f64 / 9_f64);
             match i.fract() {
                 x if x != 0.0 => {
                     println!(
@@ -43,14 +43,14 @@ fn temperature_conversion(temp_type: TemperatureUnit, num: f32) {
                     println!(
                         "\n({num}°{} - 32) * (5/9) = {:?}°{}",
                         TemperatureUnit::Fahrenheit,
-                        i as i32,
+                        i as u64,
                         TemperatureUnit::Celcius
                     );
                 }
             }
         }
         TemperatureUnit::Celcius => {
-            let i = (num as f32 * (9_f32 / 5.0)) + 32_f32;
+            let i = (num as f64 * (9_f64 / 5.0)) + 32_f64;
             match i.fract() {
                 x if x != 0.0 => {
                     println!(
@@ -64,7 +64,7 @@ fn temperature_conversion(temp_type: TemperatureUnit, num: f32) {
                     println!(
                         "\n({num}°{} - 32) * (5/9) = {:?}°{}",
                         TemperatureUnit::Celcius,
-                        i as i32,
+                        i as u64,
                         TemperatureUnit::Fahrenheit
                     );
                 }
@@ -133,7 +133,7 @@ fn main() {
                 break 'outer;
             }
 
-            let temperature: f32 = match temperature.trim().parse::<f32>() {
+            let temperature: f64 = match temperature.trim().parse::<f64>() {
                 Ok(temp) => temp,
                 Err(_) => continue 'inner,
             };
