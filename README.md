@@ -29,11 +29,12 @@ C -. Quit .-> E;
 
 %% Assign Style
 style A stroke:#66ff00, stroke-width:5px;
-style D stroke:yellow,stroke-width:5; 
+style D stroke:#66ff00,stroke-width:5; 
 style E stroke:red, stroke-width:5px;
 
 %% Assign appropriate colors to specific links
-linkStyle 3 stroke-width:5px,fill:none,stroke:yellow;
+linkStyle 2,4 stroke-width:5px,stroke:yellow,fill:none;
+linkStyle 0,1,3 stroke-width:5px,stroke:#66ff00,fill:none;
 linkStyle 5 stroke-width:5px,stroke:#66ff00,fill:none;
 linkStyle 6,7 stroke-width:5px,fill:none,stroke:red;
 %% End block of code
