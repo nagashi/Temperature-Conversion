@@ -29,7 +29,7 @@ B -. Quit .-> E; %% dashes
 C -. Quit .-> E;
 
 %% Assign Style
-style A stroke:green, stroke-width:5px;
+style A stroke:#66ff00, stroke-width:5px;
 style D stroke:yellow,stroke-width:5; 
 style E stroke:red, stroke-width:5px;
 %% End block of code
