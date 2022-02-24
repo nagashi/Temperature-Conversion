@@ -47,7 +47,7 @@ Thank you for reading about this application.&nbsp;&nbsp;Click 'Star' if you lik
         <br>
 <div align="center"> 
 
-[![MIT licensed][mit-badge]][mit-url]&nbsp;&nbsp;[![Rust](https://img.shields.io/badge/rust-%23000000.svg?style=for-the-badge&logo=rust&logoColor=white)](https://www.rust-lang.org/)<br>Rust 🦀 v1.58.1
+[![MIT licensed][mit-badge]][mit-url]&nbsp;&nbsp;[![Rust](https://img.shields.io/badge/rust-%23000000.svg?style=for-the-badge&logo=rust&logoColor=white)](https://www.rust-lang.org/)<br>Rust 🦀 v1.59.0
 
 </div>
 <br>
