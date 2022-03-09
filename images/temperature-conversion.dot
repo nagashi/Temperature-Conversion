@@ -1,0 +1,33 @@
+digraph{
+label ="Flow Chart for Temperature Conversion";
+
+node [
+    shape=box, style=rounded;
+] start; quit; completed; sa;
+
+quit[color=red];
+completed[color=green];
+sa[label="start again", color=green];
+
+cf [
+    label="input quit\nor C or F"; 
+    fontsize="15pt";
+    shape=parallelogram;
+];
+temp [
+    label="input quit\nor degrees"; 
+    fontsize="15pt";
+    shape=parallelogram;
+    size="8,8";
+];
+
+
+start -> cf;
+cf -> cf[label="invalid input", style=dotted];
+cf -> temp[label="C or F"];
+temp -> temp[label="invalid input", style=dotted];
+temp -> completed[label="integer or float"];
+cf -> quit[label="quit", fontcolor=red, color=red];
+temp -> quit[label="quit", fontcolor=red, color=red];
+completed ->sa-> cf[color=green];
+}
