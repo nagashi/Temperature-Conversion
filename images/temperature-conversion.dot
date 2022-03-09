@@ -30,4 +30,6 @@ temp -> completed[label="integer or float"];
 cf -> quit[label="quit", fontcolor=red, color=red];
 temp -> quit[label="quit", fontcolor=red, color=red];
 completed ->sa-> cf[color=green];
+
+{rank=same; sa quit completed}
 }
