@@ -66,3 +66,38 @@ Unless you explicitly state otherwise,&nbsp;any contribution intentionally submi
 for inclusion in&nbsp; 'Temperature_Conversion'&nbsp;by you,&nbsp;shall be licensed as MIT,&nbsp;without any additional terms or conditions.
 
 </p>
+
+![Alt text](https://g.gravizo.com/svg?
+  digraph{
+label ="Flow Chart for Temperature Conversion";
+
+node [
+    shape=box, style=rounded;
+] start; quit; completed;
+
+quit[color=red];
+completed[color=green];
+
+cf [
+    label="input quit\nor C or F"; 
+    fontsize="15pt";
+    shape=parallelogram;
+];
+temp [
+    label="input quit\nor degrees"; 
+    fontsize="15pt";
+    shape=parallelogram;
+    size="8,8";
+];
+
+
+start -> cf;
+cf -> cf[label="invalid input", style=dotted];
+cf -> temp[label="C or F"];
+temp -> temp[label="invalid input", style=dotted];
+temp -> completed[label="integer or float"];
+cf -> quit[label="quit", fontcolor=red, color=red];
+temp -> quit[label="quit", fontcolor=red, color=red];
+completed -> cf[label = "start again", fontcolor=green, color=green];
+}
+)
