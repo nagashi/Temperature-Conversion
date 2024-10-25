@@ -18,13 +18,13 @@ D -- Start Again -->B
 B -- Quit --> E[Stop Program]
 C -- Quit --> E
  ```
+<br><br>
 
-<br>
 Thank you for reading about this application.&nbsp;&nbsp;Click 'Star' if you like the program and do reach out and let me know if you have any questions or concerns.&nbsp;&nbsp;All suggestions, constructive,&nbsp;even non-constructive,&nbsp;will be welcomed.<img src = "images/ok.png" alt="Image denoting Ok"
           width="30"
           height="20"
           border="0"
-        />&nbsp;The source code can be viewed by first clicking on the&nbsp; [src](https://github.com/nagashi/Temperature-Conversion/tree/main/src)&nbsp;folder,&nbsp;and then clicking on the&nbsp; [main.rs](https://github.com/nagashi/Temperature-Conversion/blob/main/src/main.rs)&nbsp;file,&nbsp;for those unfamiliar with the Rust language.        
+        />&nbsp;The source code can be viewed by first clicking on the&nbsp;[src](https://github.com/nagashi/Temperature-Conversion/tree/main/src) &nbsp;folder,&nbsp;and then clicking on the&nbsp; [main.rs](https://github.com/nagashi/Temperature-Conversion/blob/main/src/main.rs)&nbsp;file,&nbsp;for those unfamiliar with the Rust language.        
         <br>
 <div align="center"> 
 
